@@ -1,22 +1,22 @@
-direnv -- Unclutter your .profile
+direnv -- unclutter your .profile
 =================================
 
 [![Built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 [![Build Status](https://dev.azure.com/direnv/direnv/_apis/build/status/direnv.direnv?branchName=master)](https://dev.azure.com/direnv/direnv/_build/latest?definitionId=1&branchName=master)
-`direnv` is an environment switcher for the shell. It knows how to hook into
-bash, zsh, tcsh, fish shell and elvish to load or unload environment variables
-depending on the current directory. This allows project-specific
+
+`direnv` is a shell extension that allows to change environment variables
+dynamically, depending on the current directory. It supports hooks for all the
+common shells like bash, zsh, tcsh and fish. This allows project-specific
 environment variables without cluttering the `~/.profile` file.
 
-Before each prompt, direnv checks for the existence of a ".envrc" file in the
+Before each prompt, direnv checks for the existence of a `.envrc` file in the
 current and parent directories. If the file exists (and is authorized), it is
-loaded into a **bash** sub-shell and all exported variables are then captured by
-direnv and then made available to the current shell.
+loaded into a **bash** sub-shell and all exported variables are then captured
+by direnv and then made available to the current shell.
 
 Because direnv is compiled into a single static executable, it is fast enough
 to be unnoticeable on each prompt. It is also language-agnostic and can be
 used to build solutions similar to rbenv, pyenv and phpenv.
-
 
 ## Example
 
@@ -37,114 +37,6 @@ direnv: unloading
 direnv export: ~PATH
 $ echo ${FOO-nope}
 nope
-```
-
-## Install
-
-### From system packages
-
-direnv is packaged for a variety of systems:
-
-* [Fedora](https://apps.fedoraproject.org/packages/direnv)
-* [Arch AUR](https://aur.archlinux.org/packages/direnv/)
-* [Debian](https://packages.debian.org/search?keywords=direnv&searchon=names&suite=all&section=all)
-* [Gentoo go-overlay](https://github.com/Dr-Terrible/go-overlay)
-* [NetBSD pkgsrc-wip](http://www.pkgsrc.org/wip/)
-* [NixOS](https://nixos.org/nixos/packages.html#direnv)
-* [OSX Homebrew](http://brew.sh/)
-* [openSUSE](https://build.opensuse.org/package/show/openSUSE%3AFactory/direnv)
-* [MacPorts](https://www.macports.org/)
-* [Ubuntu](https://packages.ubuntu.com/search?keywords=direnv&searchon=names&suite=all&section=all)
-* [GNU Guix](https://www.gnu.org/software/guix/)
-* [Snap](https://snapcraft.io/direnv)
-
-See also:
-
-[![Packaging status](https://repology.org/badge/vertical-allrepos/direnv.svg)](https://repology.org/metapackage/direnv)
-
-### From binary builds
-
-Binary builds for a variety of architectures are also available for
-[each release](https://github.com/direnv/direnv/releases).
-
-Fetch the binary, `chmod +x direnv` and put it somewhere in your PATH.
-
-### Compile from source
-
-Setup go environment https://golang.org/doc/install
-
-> go >= 1.9 is required
-
-Clone project:
-
-    $ git clone git@github.com:direnv/direnv.git
-
-Build by just typing make:
-
-    $ cd direnv
-    $ make
-
-To install to /usr/local:
-
-    $ make install
-
-Or to a different location like `~/.local`:
-
-    $ make install DESTDIR=~/.local
-
-
-## Setup
-
-For direnv to work properly it needs to be hooked into the shell. Each shell
-has its own extension mechanism:
-
-### BASH
-
-Add the following line at the end of the `~/.bashrc` file:
-
-```sh
-eval "$(direnv hook bash)"
-```
-
-Make sure it appears even after rvm, git-prompt and other shell extensions
-that manipulate the prompt.
-
-### ZSH
-
-Add the following line at the end of the `~/.zshrc` file:
-
-```sh
-eval "$(direnv hook zsh)"
-```
-
-### FISH
-
-Add the following line at the end of the `~/.config/fish/config.fish` file:
-
-```fish
-direnv hook fish | source
-```
-
-### TCSH
-
-Add the following line at the end of the `~/.cshrc` file:
-
-```sh
-eval `direnv hook tcsh`
-```
-
-### Elvish (0.12+)
-
-Run:
-
-```
-$> direnv hook elvish > ~/.elvish/lib/direnv.elv
-```
-
-and add the following line to your `~/.elvish/rc.elv` file:
-
-```
-use direnv
 ```
 
 ## Usage
@@ -218,20 +110,23 @@ source_up
 
 Based on GitHub issues interactions, here are the top things that have been confusing for users:
 
-1. direnv has a standard library of functions, a collection of utilities that I found useful to have and accumulated over the years. If you know how to read bash, you can find it here: https://github.com/direnv/direnv/blob/master/stdlib.sh
+1. direnv has a standard library of functions, a collection of utilities that I found useful to have and accumulated over the years. You can find it here: https://github.com/direnv/direnv/blob/master/stdlib.sh
 
-2. It's possible to override the stdlib with your own set of function by adding a bash file to either `~/.config/direnv/direnvrc` or `~/.direnvrc`. These will become available to all your `.envrc` files.
+2. It's possible to override the stdlib with your own set of function by adding a bash file to `~/.config/direnv/direnvrc`. This file is loaded and it's content made available to any `.envrc` file.
 
-3. direnv is actually creating a new bash process to load the stdlib, direnvrc and `.envrc`, and only exports the environment diff back to the original shell. This allows direnv to record the environment changes accurately and also work with all sorts of shells. It also means that aliases and functions are not exportable right now.
+3. direnv is not loading the `.envrc` into the current shell. It's creating a new bash sub-process to load the stdlib, direnvrc and `.envrc`, and only exports the environment diff back to the original shell. This allows direnv to record the environment changes accurately and also work with all sorts of shells. It also means that aliases and functions are not exportable right now.
 
 ## Similar projects
+
+Here is a list of other projects found in the same design space. Feel free to
+submit new ones.
 
 * [Environment Modules](http://modules.sourceforge.net/) - one of the oldest (in a good way) environment-loading systems
 * [autoenv](https://github.com/kennethreitz/autoenv) - lightweight; doesn't support unloads
 * [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv) - a feature-rich mixture of autoenv and [smartcd](https://github.com/cxreg/smartcd): enter/leave events, nesting, stashing (Zsh-only).
 * [asdf](https://github.com/asdf-vm/asdf) - a pure bash solution that has a plugin system
 
-## Contribute
+## Getting help and contribute
 
 Bug reports, contributions and forks are welcome.
 
@@ -241,8 +136,6 @@ All bugs or other forms of discussion happen on
 There is a wiki available where you can share your usage patterns or
 other tips and tricks <https://github.com/direnv/direnv/wiki>
 
-For longer form discussions you can also write to <mailto:direnv-discuss@googlegroups.com>
-
 Or drop by on [IRC (#direnv on freenode)](irc://irc.freenode.net/#direnv) to
 have a chat. If you ask a question make sure to stay around as not everyone is
 active all day.
@@ -251,4 +144,4 @@ active all day.
 
 Copyright (C) 2014 shared by all
 [contributors](https://github.com/direnv/direnv/graphs/contributors) under
-the MIT licence.
+the [MIT licence](LICENSE.md).

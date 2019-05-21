@@ -1,7 +1,9 @@
-# direnv
+## Documentation
 
-[ditto:searchbar]
-- [Home]()
+* [Installation](docs/installation.md)
+
+### Man pages
+
 - [CHANGELOG](#/CHANGELOG)
 - [LICENSE (MIT)](#/LICENSE)
 
