@@ -20,6 +20,13 @@ Because direnv is compiled into a single static executable, it is fast enough
 to be unnoticeable on each prompt. It is also language-agnostic and can be
 used to build solutions similar to rbenv, pyenv and phpenv.
 
+## Documentation
+
+* [Installation](docs/installation.md)
+* Getting started
+* How it works
+* [index](docs/)
+
 ## Example
 
 ```sh
