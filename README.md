@@ -43,7 +43,7 @@ nope
 
 ## Usage
 
-In some target folder, create a ".envrc" file and add some export(1)
+In some target folder, create a `.envrc` file and add some export(1)
 directives in it.
 
 Note that the contents of the `.envrc` file must be valid bash syntax,
@@ -54,7 +54,7 @@ If you try to use some syntax that doesn't work in bash (like zsh's
 nested expansions), you will [run into
 trouble](https://github.com/direnv/direnv/issues/199).
 
-On the next prompt you will notice that direnv complains about the ".envrc"
+On the next prompt you will notice that direnv complains about the `.envrc`
 being blocked. This is the security mechanism to avoid loading new files
 automatically. Otherwise any git repo that you pull, or tar archive that you
 unpack, would be able to wipe your hard drive once you `cd` into it.
@@ -72,7 +72,7 @@ things.
 ### The stdlib
 
 Exporting variables by hand is a bit repetitive so direnv provides a set of
-utility functions that are made available in the context of the ".envrc" file.
+utility functions that are made available in the context of the `.envrc` file.
 
 As an example, the `PATH_add` function is used to expand and prepend a path to
 the $PATH environment variable. Instead of `export $PATH=$PWD/bin:$PATH` you
@@ -84,7 +84,7 @@ direnv-stdlib(1) man page.
 
 It's also possible to create your own extensions by creating a bash file at
 `~/.config/direnv/direnvrc` or `~/.direnvrc`. This file is loaded before your
-".envrc" and thus allows you to make your own extensions to direnv.
+`.envrc` and thus allows you to make your own extensions to direnv.
 
 #### Loading layered .envrc
 
@@ -97,7 +97,7 @@ Let's say you have the following structure:
 - "/a/b/.envrc"
 
 If you add the following line in "/a/b/.envrc", you can load both of the
-".envrc" files when you are in `/a/b`:
+`.envrc` files when you are in `/a/b`:
 
 ```sh
 source_env ..
