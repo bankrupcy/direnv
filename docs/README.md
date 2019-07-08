@@ -16,7 +16,6 @@
 
 ## Guides
 
-- [Screencasts](screencasts.md)
 - [Ruby](ruby.md)
 - [Emacs integration](https://github.com/wbolster/emacs-direnv)
 - [Vim integration](https://github.com/direnv/direnv.vim)
