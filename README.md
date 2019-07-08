@@ -1,7 +1,7 @@
 direnv -- unclutter your .profile
 =================================
 
-STATUS: TESTING IN PROGRESS
+**STATUS: NEW SITE IN DEVELOPMENT**
 
 [![Built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 [![Build Status](https://dev.azure.com/direnv/direnv/_apis/build/status/direnv.direnv?branchName=master)](https://dev.azure.com/direnv/direnv/_build/latest?definitionId=1&branchName=master)
