@@ -6,10 +6,10 @@ STATUS: TESTING IN PROGRESS
 [![Built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 [![Build Status](https://dev.azure.com/direnv/direnv/_apis/build/status/direnv.direnv?branchName=master)](https://dev.azure.com/direnv/direnv/_build/latest?definitionId=1&branchName=master)
 
-`direnv` is a shell extension that allows to change environment variables
-dynamically, depending on the current directory. It supports hooks for all the
-common shells like bash, zsh, tcsh and fish. This allows project-specific
-environment variables without cluttering the `~/.profile` file.
+`direnv` is a shell extension that changes environment variables dynamically,
+depending on the current directory. It supports hooks for all the common
+shells like bash, zsh, tcsh and fish. This allows project-specific environment
+variables without cluttering the `~/.profile` file.
 
 Before each prompt, direnv checks for the existence of a `.envrc` file in the
 current and parent directories. If the file exists (and is authorized), it is
