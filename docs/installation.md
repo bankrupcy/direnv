@@ -34,6 +34,6 @@ Fetch the binary, `chmod +x direnv` and put it somewhere in your PATH.
 
 See the [Development](development.md) page.
 
-## See also
+# Next step
 
 [hook installation](hook.md)
