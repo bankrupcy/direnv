@@ -62,7 +62,8 @@ nope
 
 # Create a new .envrc. This file is bash code that is going to be loaded by
 # direnv.
-$ echo export FOO=foo > .envrc .envrc is not allowed
+$ echo export FOO=foo > .envrc
+.envrc is not allowed
 
 # The security mechanism didn't allow to load the .envrc. Since we trust it,
 # let's allow it's execution.
@@ -79,7 +80,7 @@ foo
 $ cd ..
 direnv: unloading
 
-# And now FOO is unloaded again
+# And now FOO is unset again
 $ echo ${FOO-nope}
 nope
 ```
