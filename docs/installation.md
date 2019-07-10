@@ -1,5 +1,7 @@
 # Installation
 
+The installation has two parts. (1) install the package or binary, which is presented in this document and (2) [hook into your shell](hook.md).
+
 ## From system packages
 
 direnv is packaged for a variety of systems:
@@ -31,3 +33,7 @@ Fetch the binary, `chmod +x direnv` and put it somewhere in your PATH.
 ## Compile from source
 
 See the [Development](development.md) page.
+
+## See also
+
+[hook installation](hook.md)

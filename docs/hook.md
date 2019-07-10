@@ -1,7 +1,9 @@
 # Setup
 
 For direnv to work properly it needs to be hooked into the shell. Each shell
-has its own extension mechanism:
+has its own extension mechanism.
+
+Once the hook is configured, restart your shell for direnv to be activated.
 
 ## BASH
 
