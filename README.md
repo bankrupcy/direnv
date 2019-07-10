@@ -106,7 +106,7 @@ It's also possible to create your own extensions by creating a bash file at
 Make sure to take a look at the [wiki][wiki]. It contains all sorts of useful
 information such as common recipes, editor integration, tips-and-tricks.
 
-## Common things people don't know
+## FAQ
 
 Based on GitHub issues interactions, here are the top things that have been
 confusing for users:
