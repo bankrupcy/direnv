@@ -151,6 +151,6 @@ submit new ones.
 
 Copyright (C) 2019 shared by all
 [contributors](https://github.com/direnv/direnv/graphs/contributors) under
-the [MIT licence](LICENSE.md).
+the [MIT licence](LICENSE).
 
 [wiki]: https://github.com/direnv/direnv/wiki
