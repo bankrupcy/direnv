@@ -104,8 +104,10 @@ It's also possible to create your own extensions by creating a bash file at
 
 ### The wiki
 
-Make sure to take a look at the [wiki][wiki]. It contains all sorts of useful
+Make sure to take a look at the wiki! It contains all sorts of useful
 information such as common recipes, editor integration, tips-and-tricks.
+
+https://github.com/direnv/direnv/wiki
 
 ## FAQ
 
@@ -127,10 +129,10 @@ confusing for users:
    of shells. It also means that aliases and functions are not exportable
    right now.
 
-## Getting help and contribute
+## Contributing
 
 Bug reports, contributions and forks are welcome. All bugs or other forms of
-discussion happen on <http://github.com/direnv/direnv/issues>.
+discussion happen on http://github.com/direnv/direnv/issues .
 
 Or drop by on [IRC (#direnv on freenode)](irc://irc.freenode.net/#direnv) to
 have a chat. If you ask a question make sure to stay around as not everyone is
@@ -151,5 +153,3 @@ submit new ones.
 Copyright (C) 2019 shared by all
 [contributors](https://github.com/direnv/direnv/graphs/contributors) under
 the [MIT licence](LICENSE).
-
-[wiki]: https://github.com/direnv/direnv/wiki
